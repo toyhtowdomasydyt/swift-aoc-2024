@@ -31,4 +31,20 @@ struct Day01: AdventDay {
 
     return sum
   }
+  
+  func part2() -> Any {
+    let (firstColumn, secondColumn) = entities
+    var totalSimilarityScore = 0
+    
+    for id in firstColumn {
+      let currentAmount = secondColumn.count(where: {
+        $0 == id
+      })
+      let currentSimilarityScore = id * currentAmount
+      
+      totalSimilarityScore += currentSimilarityScore
+    }
+    
+    return totalSimilarityScore
+  }
 }
